@@ -12,10 +12,8 @@ def test():
 
 @app.route('/textgen/', methods=['GET'])
 def text_gen_small():
-    stringLength=3
-    letters = string.ascii_lowercase
-    randLetters = ''.join(random.choice(letters) for i in range(stringLength))
-
+    letters = string.ascii_uppercase
+    randLetters = ''.join(random.choice(letters) for i in range(2))
     return jsonify({"Letters":randLetters})
 
 @app.route('/anEndpoint')
@@ -27,7 +25,7 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == '__main__':
-     app.run(host='0.0.0.0', port=9017)
+     app.run(host='0.0.0.0', port=9018)
 
 
 
