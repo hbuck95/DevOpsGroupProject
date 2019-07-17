@@ -9,7 +9,7 @@ app = Flask(__name__)
 def test():
     return "test"
 
-@app.route('/prizegen/', methods=['GET'])
+@app.route('/prizegen', methods=['GET'])
 def prize_gen_small():
     chance = randint(0,100)
     prize = 0
@@ -19,7 +19,7 @@ def prize_gen_small():
         prize = randint(1,10)
         resp = requests.get('http://localhost:9000/notify').content
 
-    return jsonify({"Message": resp,"Prize":prize})
+    return jsonify({"Prize":prize})
 
 @app.route('/anEndpoint')
 def make_request():
