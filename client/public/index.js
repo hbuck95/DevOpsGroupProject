@@ -22,10 +22,10 @@ function makeRequest(method, url, body) {
 
 function createAccount() {
     let newAcc = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
+        "firstName": document.getElementById("firstName").value,
+        "lastName": document.getElementById("lastName").value
     };
-    makeRequest("POST", "/addAccount", newAcc)
+    makeRequest("POST", "/server/addAccount", newAcc)
         .then((data) => {
         })
         .catch((error) => console.log(error.message));
