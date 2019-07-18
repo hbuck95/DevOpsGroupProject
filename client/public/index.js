@@ -27,6 +27,7 @@ function createAccount() {
     };
     makeRequest("POST", "/server/addAccount", newAcc)
         .then((data) => {
+	console.log(data);
         })
         .catch((error) => console.log(error.message));
     return false;
