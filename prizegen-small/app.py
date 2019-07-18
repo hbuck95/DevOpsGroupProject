@@ -5,10 +5,6 @@ import requests
 from random import randint
 app = Flask(__name__)
 
-@app.route('/test', methods=['GET'])
-def test():
-    return "test"
-
 @app.route('/prizegen', methods=['GET'])
 def prize_gen_small():
     chance = randint(0,100)
@@ -17,13 +13,9 @@ def prize_gen_small():
 
     if chance >= 50:
         prize = randint(1,10)
-        resp = requests.get('http://localhost:9000/notify').content
+        resp = requests.get('http://notification:9000/notify').content
 
     return jsonify({"Prize":prize})
-
-@app.route('/anEndpoint')
-def make_request():
-    return requests.get('http://example.com').content
 
 @app.errorhandler(404)
 def not_found(error):
@@ -31,7 +23,4 @@ def not_found(error):
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=9017)
-
-
-
 
