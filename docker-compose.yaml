@@ -11,7 +11,8 @@ services:
               source: ./nginx/nginx.conf
               target: /etc/nginx/nginx.conf
         depends_on:
-            - client       
+            - client
+            - server 
     client:
         image: hazardd/client:v1
         build:
