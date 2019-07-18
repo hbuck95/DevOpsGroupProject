@@ -6,11 +6,11 @@ import string
 import random
 app = Flask(__name__)
 
-@app.route('/textgen/', methods=['GET'])
+@app.route('/textgen', methods=['GET'])
 def text_gen_small():
     letters = string.ascii_lowercase
     randLetters = ''.join(random.choice(letters) for i in range(3))
-    return jsonify({"Letters":randLetters})
+    return randLetters
 
 @app.errorhandler(404)
 def not_found(error):

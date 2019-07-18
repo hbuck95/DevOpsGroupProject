@@ -37,25 +37,25 @@ services:
               published: 9000
               protocol: tcp
     prizegen:
-        image: hazardd/prizegen:small
+        image: hazardd/prizegen:big
         build:
-            context: ./prizegen-small
+            context: ./prizegen-big
         ports:
             - target: 9017
               published: 9017
               protocol: tcp
     textgen:
-        image: hazardd/textgen:lower
+        image: hazardd/textgen:upper
         build:
-            context: ./textgen-lower
+            context: ./textgen-upper
         ports:
             - target: 9018
               published: 9018
               protocol: tcp
     numgen:
-        image: hazardd/numgen:small
+        image: hazardd/numgen:big
         build:
-            context: ./numgen_small
+            context: ./numgen_big
         ports:
             - target: 9019
               published: 9019
@@ -68,6 +68,9 @@ services:
             - target: 5001
               published: 5001
               protocol: tcp
+        depends_on:
+            - mongo
+            - server
     mongo:
         image: mongo:latest
         ports:
