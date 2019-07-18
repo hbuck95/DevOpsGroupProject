@@ -19,7 +19,7 @@ def prize_gen_big():
     payload["prize"] = prize
     r = requests.post("http://db-connector:5001/account/createAccount", payload)
 
-    return jsonify({"Prize":prize})
+    return payload
 
 @app.errorhandler(404)
 def not_found(error):
