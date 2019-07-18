@@ -6,19 +6,11 @@ import string
 import random
 app = Flask(__name__)
 
-@app.route('/test', methods=['GET'])
-def test():
-    return "test"
-
 @app.route('/textgen/', methods=['GET'])
 def text_gen_small():
     letters = string.ascii_uppercase
     randLetters = ''.join(random.choice(letters) for i in range(2))
     return jsonify({"Letters":randLetters})
-
-@app.route('/anEndpoint')
-def make_request():
-    return requests.get('http://example.com').content
 
 @app.errorhandler(404)
 def not_found(error):
@@ -26,7 +18,3 @@ def not_found(error):
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=9018)
-
-
-
-
