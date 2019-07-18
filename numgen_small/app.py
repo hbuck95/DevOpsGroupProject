@@ -6,11 +6,11 @@ import random
 import string
 app = Flask(__name__)
 
-@app.route('/numgen/', methods=['GET'])
+@app.route('/numgen', methods=['GET'])
 def num_gen_small():
     digits = string.digits
     rand = ''.join(random.choice(digits) for i in range(6))
-    return jsonify({"Random Number":rand})
+    return rand
 
 @app.errorhandler(404)
 def not_found(error):
