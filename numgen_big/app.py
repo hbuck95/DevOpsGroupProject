@@ -6,7 +6,6 @@ import random
 import string
 app = Flask(__name__)
 
-
 @app.route('/numgen', methods=['GET'])
 def num_gen_big():
     digits = string.digits
@@ -19,7 +18,4 @@ def not_found(error):
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=9019)
-
-
-
 
