@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-		ORG = "hazardd/"
+		ORG = "hazardd"
 		CUR_PRIZE_VER = "big"
 		NEW_PRIZE_VER = "big"
 		CUR_NUM_VER = "big"
