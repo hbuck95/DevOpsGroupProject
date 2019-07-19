@@ -96,7 +96,7 @@ pipeline{
                                 sh "kubectl delete -f ./textgen-$CUR_TEXT_VER/. --all"
                         }
                 }
-		stage('Clean Numgen Server'){
+		stage('Clean Numgen'){
                         steps{
                                 sh "kubectl delete -f ./numgen_$CUR_NUM_VER/. --all"
                         }
@@ -133,21 +133,21 @@ pipeline{
                                 sh "kubectl apply -f ./notification_server/."
                         }
                 }
+                stage('Run Server'){
+                        steps{
+                                sh "kubectl apply -f ./server/."
+                        }
+                }
                 stage('Run Textgen'){
                         steps{
                                 sh "kubectl apply -f ./textgen-$NEW_TEXT_VER/."
                         }
                 }
-                stage('Run Numgen Server'){
+                stage('Run Numgen'){
                         steps{
                                 sh "kubectl apply -f ./numgen_$NEW_NUM_VER/."
                         }
                 }
-		stage('Run Server'){
-			steps{
-				sh "kubectl apply -f ./server/."
-			}
-		}
 		stage('Run Client'){
 			steps{
 				sh "kubectl apply -f ./client/service.yaml"
