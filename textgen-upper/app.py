@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/textgen', methods=['GET'])
 def text_gen_small():
     letters = string.ascii_uppercase
-    randLetters = ''.join(random.choice(letters) for i in range(2))
+    randLetters = ''.join(random.choice(letters) for i in range(3))
     return randLetters
 
 @app.errorhandler(404)
