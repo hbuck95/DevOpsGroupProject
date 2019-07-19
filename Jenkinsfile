@@ -3,7 +3,7 @@ pipeline{
 	environment {
 		ORG = "hazardd"
 		CUR_PRIZE_VER = "big"
-		NEW_PRIZE_VER = "big"
+		NEW_PRIZE_VER = "small"
 		CUR_NUM_VER = "big"
 		NEW_NUM_VER = "big"
 		CUR_TEXT_VER = "upper"
@@ -62,43 +62,6 @@ pipeline{
 				sh 'sudo docker push $ORG/db-connector:v1'
                         }
                 }
-		stage('Clean Nginx'){
-			steps{
-				sh "kubectl delete -f ./nginx/config-map.yaml"
-				sh "kubectl delete -f ./nginx/deployment.yaml"
-			}
-		}
-		stage('Clean Prize Gen'){
-			steps{
-				sh "kubectl delete -f ./prizegen-$CUR_PRIZE_VER/. --all"
-			}
-		}
-		stage('Clean Notification Server'){
-			steps{
-				sh "kubectl delete -f ./notification_server/. --all"
-			}
-		}
-		stage('Clean Textgen'){
-                        steps{
-                                sh "kubectl delete -f ./textgen-$CUR_TEXT_VER/. --all"
-                        }
-                }
-		stage('Clean Numgen'){
-                        steps{
-                                sh "kubectl delete -f ./numgen_$CUR_NUM_VER/. --all"
-                        }
-                }
-		stage('Clean Server'){
-			steps {
-				sh "kubectl delete -f ./server/. --all"
-			}
-		}
-		stage('Clean Client'){
-			steps {
-				sh "kubectl delete -f ./client/service.yaml --all"
-				sh "kubectl delete -f ./client/deployment.yaml --all"
-			}
-		}
 		stage('Run Mongo'){
 			steps{
 				sh "kubectl apply -f mongo/pod.yaml -f mongo/service.yaml"
