@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prizegen
+  labels: 
+    app: prizegen
+spec:
+  selector:
+    matchLabels:
+      app: prizegen
+  template:
+    metadata:
+      labels:
+        app: prizegen
+    spec:
+      containers:
+      - name: prizegen
+        image: hazardd/prizegen:big
+        ports:
+        - containerPort: 9017
+
