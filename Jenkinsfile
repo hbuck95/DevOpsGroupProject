@@ -29,7 +29,7 @@ pipeline{
 		stage('Build Numgens'){
                         steps{
                                 sh 'sudo docker build ./numgen_small/. -t $ORG/numgen:small'
-                                sh 'sudo docker build ./numgen-big/. -t $ORG/numgen:big'
+                                sh 'sudo docker build ./numgen_big/. -t $ORG/numgen:big'
                         }
                 }
 		stage('Build Prizegens'){
