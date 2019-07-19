@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: textgen
+  labels: 
+    app: textgen
+spec:
+  selector:
+    matchLabels:
+      app: textgen
+  template:
+    metadata:
+      labels:
+        app: textgen
+    spec:
+      containers:
+      - name: textgen
+        image: hazardd/textgen:upper
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9018
