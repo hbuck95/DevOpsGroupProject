@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: numgen
+  name: textgen
   labels: 
-    app: numgen
+    app: textgen
 spec:
   containers:
     - name: numgen
