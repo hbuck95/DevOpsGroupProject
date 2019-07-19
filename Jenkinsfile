@@ -62,51 +62,20 @@ pipeline{
 				sh 'sudo docker push $ORG/db-connector:v1'
                         }
                 }
-		stage('Run Mongo'){
-			steps{
-				sh "kubectl apply -f mongo/pod.yaml -f mongo/service.yaml"
-			}
-		}
-		stage('Run DB Connector'){
-			steps{
-				 sh "kubectl apply -f db_connector/pod.yaml -f db_connector/service.yaml"
-			}
-		}
-		stage('Run Prize Gen'){
+		stage('Update Prize Gen'){
                         steps{
-                                sh "kubectl apply -f ./prizegen-$NEW_PRIZE_VER/."
+                                sh "kubectl set image deployments/prizegen prizegen=$ORG/prizegen:$NEW_PRIZE_VER"
                         }
                 }
-                stage('Run Notification Server'){
+                stage('Update Textgen'){
                         steps{
-                                sh "kubectl apply -f ./notification_server/."
+				sh "kubectl set image deployments/textgen textgen=$ORG/textgen:$NEW_TEXT_VER"
                         }
                 }
-                stage('Run Server'){
+                stage('Update Numgen'){
                         steps{
-                                sh "kubectl apply -f ./server/."
+                                sh "kubectl set image deployments/numgen numgen=$ORG/numgen:$NEW_NUM_VER"
                         }
                 }
-                stage('Run Textgen'){
-                        steps{
-                                sh "kubectl apply -f ./textgen-$NEW_TEXT_VER/."
-                        }
-                }
-                stage('Run Numgen'){
-                        steps{
-                                sh "kubectl apply -f ./numgen_$NEW_NUM_VER/."
-                        }
-                }
-		stage('Run Client'){
-			steps{
-				sh "kubectl apply -f ./client/service.yaml"
-				sh "kubectl apply -f ./client/deployment.yaml"
-			}
-		}
-		stage('Run Nginx'){
-			steps{
-				sh "kubectl apply -f ./nginx/."
-			}
-		}		
 	}
 }
