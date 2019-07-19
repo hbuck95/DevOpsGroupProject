@@ -75,6 +75,8 @@ pipeline{
 		}
 		stage('Clean DB Connector'){
 			steps{
+				sh "pwd"
+				sh "ls -alrt"
 				sh "kubectl delete -f ./db_connector/pod.yaml"
 				sh "kubectl delete -f ./db_connector/service.yaml"
 			}
