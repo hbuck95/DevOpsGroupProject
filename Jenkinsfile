@@ -3,8 +3,8 @@ pipeline{
 	environment {
 		ORG = "hazardd"
 		NEW_PRIZE_VER = "big"
-		NEW_NUM_VER = "small"
-		NEW_TEXT_VER = "lower"
+		NEW_NUM_VER = "big"
+		NEW_TEXT_VER = "upper"
 	}
 	stages{	
 		stage('Build Client'){
@@ -62,16 +62,19 @@ pipeline{
 		stage('Update Prize Gen'){
                         steps{
                                 sh "kubectl set image deployments/prizegen prizegen=$ORG/prizegen:$NEW_PRIZE_VER"
+				sh "kubectl delete pod prizegen"
                         }
                 }
                 stage('Update Textgen'){
                         steps{
 				sh "kubectl set image deployments/textgen textgen=$ORG/textgen:$NEW_TEXT_VER"
+				sh "kubectl delete pod textgen"
                         }
                 }
                 stage('Update Numgen'){
                         steps{
                                 sh "kubectl set image deployments/numgen numgen=$ORG/numgen:$NEW_NUM_VER"
+				sh "kubectl delete pod numgen"
                         }
                 }
 	}
