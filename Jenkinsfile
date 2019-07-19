@@ -75,7 +75,8 @@ pipeline{
 		}
 		stage('Clean DB Connector'){
 			steps{
-				sh "kubectl delete -f ./db_connector/."
+				sh "kubectl delete -f ./db_connector/pod.yaml"
+				sh "kubectl delete -f ./db_connector/service.yaml"
 			}
 		}
 		stage('Clean Prize Gen'){
@@ -105,7 +106,8 @@ pipeline{
 		}
 		stage('Clean Client'){
 			steps {
-				sh "kubectl delete -f ./client/."
+				sh "kubectl delete -f ./client/service.yaml"
+				sh "kubectl delete -f ./client/deployment.yaml"
 			}
 		}
 		stage('Run Mongo'){
@@ -115,7 +117,8 @@ pipeline{
 		}
 		stage('Run DB Connector'){
 			steps{
-				sh "kubectl apply -f ./db_connector/."
+				sh "kubectl apply -f ./db_connector/pod.yaml"
+				sh "kubectl apply -f ./db_connector/service.yaml"
 			}
 		}
 		stage('Run Prize Gen'){
@@ -145,7 +148,8 @@ pipeline{
 		}
 		stage('Run Client'){
 			steps{
-				sh "kubectl apply -f ."
+				sh "kubectl apply -f ./client/service.yaml"
+				sh "kubectl apply -f ./client/deployment.yaml"
 			}
 		}
 		stage('Run Nginx'){
