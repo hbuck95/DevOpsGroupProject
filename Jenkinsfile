@@ -112,12 +112,13 @@ pipeline{
 		}
 		stage('Run Mongo'){
 			steps{
-				sh "kubectl apply -f ./mongo/."
+				sh "kubectl apply -f ./mongo/"
 			}
 		}
 		stage('Run DB Connector'){
 			steps{
-				sh "kubectl apply -f ./db_connector/. --validate=false"
+				sh "kubectl apply -f ./db_connector/service.yaml"
+				sh "kubectl apply -f ./db_connector/pod.yaml"
 			}
 		}
 		stage('Run Prize Gen'){
