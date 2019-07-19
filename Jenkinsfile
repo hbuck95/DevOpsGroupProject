@@ -4,7 +4,7 @@ pipeline{
 		ORG = "hazardd"
 		NEW_PRIZE_VER = "big"
 		NEW_NUM_VER = "big"
-		NEW_TEXT_VER = "upper"
+		NEW_TEXT_VER = "lower"
 	}
 	stages{	
 		stage('Build Client'){
