@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prizegen
+  labels: 
+    app: prizegen
+spec:
+  containers:
+    - name: prizegen
+      image: hazardd/prizegen:small
+      ports:
+      - containerPort: 9017
