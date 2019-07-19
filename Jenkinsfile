@@ -117,8 +117,7 @@ pipeline{
 		}
 		stage('Run DB Connector'){
 			steps{
-				sh "kubectl apply -f ./db_connector/pod.yaml"
-				sh "kubectl apply -f ./db_connector/service.yaml"
+				sh "kubectl apply -f ./db_connector/. --validate=false"
 			}
 		}
 		stage('Run Prize Gen'){
