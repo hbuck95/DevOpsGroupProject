@@ -70,46 +70,46 @@ pipeline{
 		}
 		stage('Clean Mongo'){
 			steps{
-				sh "kubectl delete -f ./mongo/."
+				sh "kubectl delete -f ./mongo/. --all"
 			}
 		}
 		stage('Clean DB Connector'){
 			steps{
 				sh "pwd"
 				sh "ls -alrt"
-				sh "kubectl delete -f ./db_connector/pod.yaml"
-				sh "kubectl delete -f ./db_connector/service.yaml"
+				sh "kubectl delete -f ./db_connector/pod.yaml --all"
+				sh "kubectl delete -f ./db_connector/service.yaml --all"
 			}
 		}
 		stage('Clean Prize Gen'){
 			steps{
-				sh "kubectl delete -f ./prizegen-$CUR_PRIZE_VER/."
+				sh "kubectl delete -f ./prizegen-$CUR_PRIZE_VER/. --all"
 			}
 		}
 		stage('Clean Notification Server'){
 			steps{
-				sh "kubectl delete -f ./notification_server/."
+				sh "kubectl delete -f ./notification_server/. --all"
 			}
 		}
 		stage('Clean Textgen'){
                         steps{
-                                sh "kubectl delete -f ./textgen-$CUR_TEXT_VER/."
+                                sh "kubectl delete -f ./textgen-$CUR_TEXT_VER/. --all"
                         }
                 }
 		stage('Clean Numgen Server'){
                         steps{
-                                sh "kubectl delete -f ./numgen_$CUR_NUM_VER/."
+                                sh "kubectl delete -f ./numgen_$CUR_NUM_VER/. --all"
                         }
                 }
 		stage('Clean Server'){
 			steps {
-				sh "kubectl delete -f ./server/."
+				sh "kubectl delete -f ./server/. --all"
 			}
 		}
 		stage('Clean Client'){
 			steps {
-				sh "kubectl delete -f ./client/service.yaml"
-				sh "kubectl delete -f ./client/deployment.yaml"
+				sh "kubectl delete -f ./client/service.yaml --all"
+				sh "kubectl delete -f ./client/deployment.yaml --all"
 			}
 		}
 		stage('Run Mongo'){
