@@ -8,5 +8,6 @@ spec:
   containers:
     - name: prizegen
       image: hazardd/prizegen:small
+      imagePullPolicy: "Always"
       ports:
       - containerPort: 9017
