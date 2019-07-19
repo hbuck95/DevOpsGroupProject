@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: numgen
+  labels: 
+    app: numgen
+spec:
+  selector:
+    matchLabels:
+      app: numgen
+  template:
+    metadata:
+      labels:
+        app: numgen
+    spec:
+      containers:
+      - name: numgen
+        image: hazardd/numgen:big
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9019
