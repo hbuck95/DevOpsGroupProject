@@ -4,7 +4,7 @@ metadata:
   name: prizegen
 spec:
   selector:
-    app: prizgen
+    app: prizegen
   ports: 
   - protocol: TCP
     port: 9017
