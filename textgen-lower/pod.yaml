@@ -8,5 +8,6 @@ spec:
   containers:
     - name: textgen
       image: hazardd/textgen:lower
+      imagePullPolicy: Always
       ports:
       - containerPort: 9018
