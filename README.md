@@ -126,18 +126,23 @@ YOUR_ASSIGNED_IP/jenkins
 
 ## How to swap images in a Kubernetes deployment
 Once your kubernetes containers are deployed image updates can be issued using the 'kubectl set image' command as follows:
-```kubectl set image deployment/[DEPLOYMENT] [CONTAINER]=[IMAGE]:[VERSION]```
+```
+kubectl set image deployment/[DEPLOYMENT] [CONTAINER]=[IMAGE]:[VERSION]
+```
+
 e.g:
-```kubectl set image deployment/prizegen prizegen=hazardd/prizegen:big```
+```
+kubectl set image deployment/prizegen prizegen=hazardd/prizegen:big
+```
 
 
 All of the microservice deployments in this project can be updated using the above format as follows:
 
 Prizegen:
-	```
+  ```
   kubectl set image deployment/prizegen prizegen=hazardd/prizegen:big
 	kubectl set image deployment/prizegen prizegen=hazardd/prizegen:small
-  ```
+	```
   
 Textgen:
 	```
@@ -281,13 +286,14 @@ docker service update --replicas 2 stack-lafb_nginx
 We cannot determine how or why this happens but can reproduce  this issue each time.
 
 * The jenkins image used in this project for Kubernetes deployment has been configured incorrectly and has not had the jenkins user added to the docker group, due to this each docker command must be executed with sudo.
-	e.g:
+
+  e.g:
   ```sudo docker images```
 
 * With Jenkins deployed in Kubernetes you are required to login to your Dockhub to push to your organisations repository, this login can sometimes timeout and must be recompleted as follows:
 
-Enter the bash shell within the Jenkins container:
-```kubectl exec -it jenkins /bin/bash```
+  Enter the bash shell within the Jenkins container:
+  ```kubectl exec -it jenkins /bin/bash```
 
-Log back in to your docker account:
-```sudo docker login``` 
+  Log back in to your docker account:
+  ```sudo docker login``` 
