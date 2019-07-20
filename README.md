@@ -89,6 +89,7 @@ kubectl apply –f mongo/
 
 # Ensure that the pod is successfully running before continuing as issues may occur
 # It would be good practice to do this each each pod deployment for the steps below.
+
 kubectl get pods
 
 # Please note that some services will take on average of 3-8 minutes to deploy
