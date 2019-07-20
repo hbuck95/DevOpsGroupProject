@@ -194,7 +194,7 @@ https://[IP_ADDRESS]/jenkins
 
 Install and setup Jenkins as normal, once setup then create a pipeline job as you would with any other jenkins job and add a webhook:
 
-Example: ```http://admin:admin@19.96.141.205/jenkins/job/devops/build?token=kubes```
+Example: ```http://admin:admin@19.96.141.205/jenkins/job/devops/build?token=kubes```\
 Usage: ```http://[USER]:[PASS]@[IP][PATH]/job/[JOB]/build?token=[TOKEN]```
 
 Fork this project and ensure that the Jenkins job is pointing the currect github url on the kubernetes or kubernetes-update branch as these branches support jenkins deployment.
