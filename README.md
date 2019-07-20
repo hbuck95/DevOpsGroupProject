@@ -12,12 +12,12 @@ This system is based off of: https://github.com/Matt25969/LAFB
 5. [Jenkins Pipeline](https://github.com/hbuck95/DevOpsGroupProject#jenkins-pipeline)
 6. [How to deploy using the Azure Kubernetes Service](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-the-azure-kubernetes-service)
 6b. [How to swap images in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-swap-images-in-a-kubernetes-deployment)
-7. [How to setup the Jenkins pipeline in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-setup-the-jenkins-pipeline-for-kubernetes-deployment)
-8. [How to deploy using Docker Swarm](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-docker-swarm)
-9. [Known Issues](https://github.com/hbuck95/DevOpsGroupProject#known-issues)
+6c. [How to setup the Jenkins pipeline in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-setup-the-jenkins-pipeline-for-kubernetes-deployment)
+7. [How to deploy using Docker Swarm](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-docker-swarm)
+8. [Known Issues](https://github.com/hbuck95/DevOpsGroupProject#known-issues)
 
 
-## Original Architecture
+# Original Architecture
 
 The original architecture for the LAFB system is set out as such:
 
@@ -32,7 +32,7 @@ The architecture consists of:
 
 The reason that the original architecture has been changed is so that the server performs one service. In this architecture the server randomly generates the users account number, interacts with the notification server and serves the API to the static website.
 
-## New Architecture
+# New Architecture
 
 The current project architecture:
 ![Current Architecture](http://i.imgur.com/OKcuydy.png)
@@ -48,10 +48,10 @@ The new architecture consists of:
   *	A client made using Node.js which interacts with the server
   *	A reverse-proxy using Nginx to route traffic
   
-## CD/CI Pipeline
+# CD/CI Pipeline
 ![CD/CI Pipeline](http://i.imgur.com/BY7lolH.png)
   
-## Jenkins Pipeline
+# Jenkins Pipeline
   
 The Jenkins pipeline is split into two separate pipelines: initial deployment, and update.
 
@@ -59,7 +59,7 @@ With the initial deployment whenever a push to the current development branch is
 
 The update pipeline works mostly the same way, however pods are never killed and instead any new images are deployed into the live pods using the 'set image' command meaning that the user experience is never interrupted.
 
-## How to deploy using the Azure Kubernetes Service
+# How to deploy using the Azure Kubernetes Service
 
 Using the Azure CLI ensure you are logged in *(enter credentials if prompted)*:
 ```
@@ -200,7 +200,7 @@ Fork this project and ensure that the Jenkins job is pointing the currect github
 
 Make sure to point the job to look in the project for the Jenkinsfile.
 
-## How to deploy using Docker Swarm
+# How to deploy using Docker Swarm
 
 Create a new resource group:
 ```
@@ -294,7 +294,7 @@ In addition, you can update services and issue replicas as follows:
 docker service update --replicas 2 stack-lafb_nginx
 ```
 
-## Known Issues
+# Known Issues
 * When initially deploying the project with Jenkins the Jenkins user will successfully deploy the mongo database and db- connector images, however they do not connect and instead these may have to be deleted and then redeployed manually.
 We cannot determine how or why this happens but can reproduce  this issue each time.
 
