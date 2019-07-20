@@ -10,7 +10,7 @@ This system is based off of: https://github.com/Matt25969/LAFB
 3. [New Architecture](https://github.com/hbuck95/DevOpsGroupProject#new-architecture)
 4. [CD/CI Pipeline](https://github.com/hbuck95/DevOpsGroupProject#cdci-pipeline)
 5. [Jenkins Pipeline](https://github.com/hbuck95/DevOpsGroupProject#jenkins-pipeline)
-6. [How to deploy using the Azure Kubernetes Service](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-the-azure-kubernetes-service)
+6. [How to deploy with the Azure Kubernetes Service](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-with-the-azure-kubernetes-service)
 6b. [How to swap images in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-swap-images-in-a-kubernetes-deployment)
 6c. [How to setup the Jenkins pipeline in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-setup-the-jenkins-pipeline-for-kubernetes-deployment)
 7. [How to deploy using Docker Swarm](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-docker-swarm)
@@ -59,7 +59,7 @@ With the initial deployment whenever a push to the current development branch is
 
 The update pipeline works mostly the same way, however pods are never killed and instead any new images are deployed into the live pods using the 'set image' command meaning that the user experience is never interrupted.
 
-# How to deploy using the Azure Kubernetes Service
+# How to deploy with the Azure Kubernetes Service
 
 Using the Azure CLI ensure you are logged in *(enter credentials if prompted)*:
 ```
