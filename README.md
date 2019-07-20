@@ -11,9 +11,7 @@ This system is based off of: https://github.com/Matt25969/LAFB
 4. [CD/CI Pipeline](https://github.com/hbuck95/DevOpsGroupProject#cdci-pipeline)
 5. [Jenkins Pipeline](https://github.com/hbuck95/DevOpsGroupProject#jenkins-pipeline)
 6. [How to deploy with the Azure Kubernetes Service](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-with-the-azure-kubernetes-service)
-
 6b. [How to swap images in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-swap-images-in-a-kubernetes-deployment)
-
 6c. [How to setup the Jenkins pipeline in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-setup-the-jenkins-pipeline-for-kubernetes-deployment)
 7. [How to deploy using Docker Swarm](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-docker-swarm)
 8. [Known Issues](https://github.com/hbuck95/DevOpsGroupProject#known-issues)
