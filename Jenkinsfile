@@ -2,9 +2,9 @@ pipeline{
 	agent any
 	environment {
 		ORG = "hazardd"
-		NEW_PRIZE_VER = "big"
-		NEW_NUM_VER = "big"
-		NEW_TEXT_VER = "upper"
+		NEW_PRIZE_VER = "small"
+		NEW_NUM_VER = "small"
+		NEW_TEXT_VER = "lower"
 	}
 	stages{	
 		stage('Build Client'){
