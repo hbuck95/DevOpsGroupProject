@@ -15,6 +15,7 @@ This system is based off of: https://github.com/Matt25969/LAFB
 6c. [How to setup the Jenkins pipeline in a Kubernetes deployment](https://github.com/hbuck95/DevOpsGroupProject#how-to-setup-the-jenkins-pipeline-for-kubernetes-deployment)
 7. [How to deploy using Docker Swarm](https://github.com/hbuck95/DevOpsGroupProject#how-to-deploy-using-docker-swarm)
 8. [Known Issues](https://github.com/hbuck95/DevOpsGroupProject#known-issues)
+9. [Contributors](https://github.com/hbuck95/DevOpsGroupProject#contributors)
 
 
 # Original Architecture
@@ -311,3 +312,7 @@ We cannot determine how or why this happens but can reproduce  this issue each t
 
   Log back in to your docker account:
   ```sudo docker login``` 
+
+# Contributors
+[Harry Buck](https://github.com/hbuck95)
+[Karishma Patel](https://github.com/patelkarishma10)
