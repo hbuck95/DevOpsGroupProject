@@ -314,5 +314,5 @@ We cannot determine how or why this happens but can reproduce  this issue each t
   ```sudo docker login``` 
 
 # Contributors
-[Harry Buck](https://github.com/hbuck95)
+[Harry Buck](https://github.com/hbuck95)\
 [Karishma Patel](https://github.com/patelkarishma10)
